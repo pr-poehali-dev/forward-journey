@@ -3,7 +3,10 @@ import { Input } from '@/components/ui/input';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
+import { useToast } from '@/hooks/use-toast';
 import Icon from '@/components/ui/icon';
+import { useCart } from '@/contexts/CartContext';
+import { CartSheet } from '@/components/CartSheet';
 
 interface Product {
   id: number;
@@ -70,6 +73,16 @@ const products: Product[] = [
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const { addToCart } = useCart();
+  const { toast } = useToast();
+
+  const handleAddToCart = (product: Product) => {
+    addToCart(product);
+    toast({
+      title: 'Товар добавлен в корзину',
+      description: product.name,
+    });
+  };
 
   const filteredProducts = products.filter(product =>
     product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
@@ -89,9 +102,7 @@ const Index = () => {
               <Button variant="ghost" size="icon">
                 <Icon name="Heart" size={24} />
               </Button>
-              <Button variant="ghost" size="icon">
-                <Icon name="ShoppingCart" size={24} />
-              </Button>
+              <CartSheet />
             </div>
           </div>
         </div>
@@ -173,7 +184,10 @@ const Index = () => {
                     </span>
                   )}
                 </div>
-                <Button className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity">
+                <Button 
+                  className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity"
+                  onClick={() => handleAddToCart(product)}
+                >
                   <Icon name="ShoppingCart" size={18} className="mr-2" />
                   Купить
                 </Button>
