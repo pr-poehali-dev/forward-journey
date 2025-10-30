@@ -73,15 +73,21 @@ const products: Product[] = [
 
 const Index = () => {
   const [searchQuery, setSearchQuery] = useState('');
+  const [addingToCart, setAddingToCart] = useState<number | null>(null);
   const { addToCart } = useCart();
   const { toast } = useToast();
 
   const handleAddToCart = (product: Product) => {
-    addToCart(product);
-    toast({
-      title: 'Товар добавлен в корзину',
-      description: product.name,
-    });
+    setAddingToCart(product.id);
+    
+    setTimeout(() => {
+      addToCart(product);
+      toast({
+        title: 'Товар добавлен в корзину',
+        description: product.name,
+      });
+      setAddingToCart(null);
+    }, 300);
   };
 
   const filteredProducts = products.filter(product =>
@@ -185,11 +191,21 @@ const Index = () => {
                   )}
                 </div>
                 <Button 
-                  className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity"
+                  className="bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-all"
                   onClick={() => handleAddToCart(product)}
+                  disabled={addingToCart === product.id}
                 >
-                  <Icon name="ShoppingCart" size={18} className="mr-2" />
-                  Купить
+                  {addingToCart === product.id ? (
+                    <>
+                      <Icon name="Loader2" size={18} className="mr-2 animate-spin" />
+                      Добавляю...
+                    </>
+                  ) : (
+                    <>
+                      <Icon name="ShoppingCart" size={18} className="mr-2" />
+                      Купить
+                    </>
+                  )}
                 </Button>
               </CardFooter>
             </Card>
