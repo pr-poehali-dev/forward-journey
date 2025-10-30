@@ -221,6 +221,70 @@ const Index = () => {
         )}
       </section>
 
+      <section className="container mx-auto px-4 py-16 bg-white/50">
+        <div className="max-w-5xl mx-auto">
+          <div className="text-center mb-12 animate-fade-in">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+              Официальный партнёр Wildberries
+            </h2>
+            <p className="text-lg text-muted-foreground">
+              Надёжное сотрудничество с крупнейшим маркетплейсом России
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <Card className="border-2 border-purple-100 hover:shadow-xl transition-all duration-300 animate-fade-in">
+              <CardHeader>
+                <div className="w-14 h-14 bg-gradient-to-br from-primary to-secondary rounded-full flex items-center justify-center mb-4">
+                  <Icon name="Package" size={28} className="text-white" />
+                </div>
+                <CardTitle>Широкий ассортимент</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Все наши товары доступны на площадке Wildberries с быстрой доставкой по всей России
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-purple-100 hover:shadow-xl transition-all duration-300 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+              <CardHeader>
+                <div className="w-14 h-14 bg-gradient-to-br from-secondary to-accent rounded-full flex items-center justify-center mb-4">
+                  <Icon name="ShieldCheck" size={28} className="text-white" />
+                </div>
+                <CardTitle>Гарантия качества</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Официальная гарантия на всю продукцию и проверка подлинности от Wildberries
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card className="border-2 border-purple-100 hover:shadow-xl transition-all duration-300 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              <CardHeader>
+                <div className="w-14 h-14 bg-gradient-to-br from-accent to-primary rounded-full flex items-center justify-center mb-4">
+                  <Icon name="Truck" size={28} className="text-white" />
+                </div>
+                <CardTitle>Быстрая доставка</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <p className="text-muted-foreground">
+                  Доставка через пункты выдачи Wildberries по всей стране в течение 1-3 дней
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          <div className="mt-12 text-center">
+            <Button size="lg" className="bg-gradient-to-r from-primary via-secondary to-accent hover:opacity-90 transition-opacity text-lg px-8 py-6">
+              <Icon name="ExternalLink" size={20} className="mr-2" />
+              Перейти в наш магазин на Wildberries
+            </Button>
+          </div>
+        </div>
+      </section>
+
       <footer className="bg-gradient-to-r from-primary via-secondary to-accent text-white py-12 mt-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
