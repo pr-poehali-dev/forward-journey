@@ -6,7 +6,10 @@ import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/hooks/use-toast';
 import Icon from '@/components/ui/icon';
 import { useCart } from '@/contexts/CartContext';
+import { useUser } from '@/contexts/UserContext';
 import { CartSheet } from '@/components/CartSheet';
+import { AuthDialog } from '@/components/AuthDialog';
+import { UserMenu } from '@/components/UserMenu';
 
 interface Product {
   id: number;
@@ -75,6 +78,7 @@ const Index = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [addingToCart, setAddingToCart] = useState<number | null>(null);
   const { addToCart } = useCart();
+  const { user, login, isAuthenticated } = useUser();
   const { toast } = useToast();
 
   const handleAddToCart = (product: Product) => {
@@ -104,11 +108,16 @@ const Index = () => {
             <h1 className="text-3xl font-bold bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
               TechShop
             </h1>
-            <div className="flex gap-4">
+            <div className="flex gap-2">
               <Button variant="ghost" size="icon">
                 <Icon name="Heart" size={24} />
               </Button>
               <CartSheet />
+              {isAuthenticated ? (
+                <UserMenu />
+              ) : (
+                <AuthDialog onLogin={login} />
+              )}
             </div>
           </div>
         </div>
