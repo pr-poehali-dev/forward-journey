@@ -12,10 +12,10 @@ export const CartSheet = () => {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="ghost" size="icon" className="relative group">
-          <Icon name="ShoppingCart" size={24} className="group-hover:scale-110 transition-transform" />
+        <Button variant="ghost" size="icon" className="relative">
+          <Icon name="ShoppingCart" size={24} />
           {totalItems > 0 && (
-            <Badge className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-xs bg-accent animate-scale-in">
+            <Badge className="absolute -top-1 -right-1 h-5 w-5 flex items-center justify-center p-0 text-xs bg-accent">
               {totalItems}
             </Badge>
           )}
