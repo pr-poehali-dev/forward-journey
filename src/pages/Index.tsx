@@ -285,6 +285,105 @@ const Index = () => {
         </div>
       </section>
 
+      <section className="container mx-auto px-4 py-16">
+        <div className="text-center mb-12 animate-fade-in">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
+            Отзывы наших покупателей
+          </h2>
+          <div className="flex items-center justify-center gap-2 text-lg">
+            <div className="flex">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <Icon key={star} name="Star" size={24} className="fill-amber-400 text-amber-400" />
+              ))}
+            </div>
+            <span className="font-semibold text-2xl">4.9</span>
+            <span className="text-muted-foreground">из 5 на основе 2,847 отзывов</span>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <Card className="border-2 border-purple-100 hover:shadow-xl transition-all duration-300 animate-fade-in">
+            <CardHeader>
+              <div className="flex items-start justify-between mb-2">
+                <div>
+                  <CardTitle className="text-lg">Анна Смирнова</CardTitle>
+                  <p className="text-sm text-muted-foreground">2 дня назад</p>
+                </div>
+                <div className="flex">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <Icon key={star} name="Star" size={16} className="fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                Купила беспроводные наушники Premium - просто восторг! Звук чистый, шумоподавление работает отлично. Заказывала через Wildberries, пришло за 2 дня. Очень довольна покупкой!
+              </p>
+              <Badge variant="outline" className="mt-4">
+                Беспроводные наушники Premium
+              </Badge>
+            </CardContent>
+          </Card>
+
+          <Card className="border-2 border-purple-100 hover:shadow-xl transition-all duration-300 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+            <CardHeader>
+              <div className="flex items-start justify-between mb-2">
+                <div>
+                  <CardTitle className="text-lg">Дмитрий Козлов</CardTitle>
+                  <p className="text-sm text-muted-foreground">5 дней назад</p>
+                </div>
+                <div className="flex">
+                  {[1, 2, 3, 4, 5].map((star) => (
+                    <Icon key={star} name="Star" size={16} className="fill-amber-400 text-amber-400" />
+                  ))}
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                Умные часы Elite превзошли все ожидания! Стильный дизайн, много функций для спорта и здоровья. Батарея держит 5 дней. Магазин надёжный, рекомендую!
+              </p>
+              <Badge variant="outline" className="mt-4">
+                Умные часы Elite
+              </Badge>
+            </CardContent>
+          </Card>
+
+          <Card className="border-2 border-purple-100 hover:shadow-xl transition-all duration-300 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+            <CardHeader>
+              <div className="flex items-start justify-between mb-2">
+                <div>
+                  <CardTitle className="text-lg">Екатерина Волкова</CardTitle>
+                  <p className="text-sm text-muted-foreground">1 неделю назад</p>
+                </div>
+                <div className="flex">
+                  {[1, 2, 3, 4].map((star) => (
+                    <Icon key={star} name="Star" size={16} className="fill-amber-400 text-amber-400" />
+                  ))}
+                  <Icon name="Star" size={16} className="text-amber-400" />
+                </div>
+              </div>
+            </CardHeader>
+            <CardContent>
+              <p className="text-muted-foreground">
+                Портативная колонка Wave - отличный выбор для пикников! Звук мощный, басы хорошие. Водонепроницаемая, проверено на практике. Единственный минус - хотелось бы больше цветов.
+              </p>
+              <Badge variant="outline" className="mt-4">
+                Портативная колонка Wave
+              </Badge>
+            </CardContent>
+          </Card>
+        </div>
+
+        <div className="mt-12 text-center animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          <Button variant="outline" size="lg" className="border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all">
+            <Icon name="MessageCircle" size={20} className="mr-2" />
+            Читать все отзывы
+          </Button>
+        </div>
+      </section>
+
       <footer className="bg-gradient-to-r from-primary via-secondary to-accent text-white py-12 mt-16">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
